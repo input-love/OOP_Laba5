@@ -6,15 +6,21 @@ namespace OOP_Laba5
     {
         public void start()
         {
-            int check = dialog_get_sort_name();
-            int size = dialog_get_size_file();
+            try
+            {
+                int check = dialog_get_sort_name();
+                int size = dialog_get_size_file();
 
-            ArrayOfNumber array_of_number = new ArrayOfNumber(size);
-            array_of_number.create_arr();
+                ArrayOfNumber array_of_number = new ArrayOfNumber(size);
+                array_of_number.create_arr();
 
-            shape_factory(check, ref array_of_number);
+                shape_factory(check, ref array_of_number);
 
-            print_file(ref array_of_number);
+                print_file(ref array_of_number);
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private int dialog_get_sort_name()

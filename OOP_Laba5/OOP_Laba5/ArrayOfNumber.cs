@@ -11,8 +11,14 @@ namespace OOP_Laba5
         }
         public void create_arr()
         {
-            ScanFile scan_File = new ScanFile();
-            scan_File.scan_file(ref _arr, _size_arr);
+            try
+            {
+                ScanFile scan_File = new ScanFile();
+                scan_File.scan_file(ref _arr, _size_arr);
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int _size_arr;
