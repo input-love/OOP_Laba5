@@ -11,3 +11,4 @@ C:\Users\Andrew\Desktop\OOP_Laba5\OOP_Laba5\OOP_Laba5\obj\Debug\netcoreapp3.1\OO
 C:\Users\Andrew\Desktop\OOP_Laba5\OOP_Laba5\OOP_Laba5\obj\Debug\netcoreapp3.1\OOP_Laba5.dll
 C:\Users\Andrew\Desktop\OOP_Laba5\OOP_Laba5\OOP_Laba5\obj\Debug\netcoreapp3.1\OOP_Laba5.pdb
 C:\Users\Andrew\Desktop\OOP_Laba5\OOP_Laba5\OOP_Laba5\obj\Debug\netcoreapp3.1\OOP_Laba5.genruntimeconfig.cache
+C:\Users\Andrew\Desktop\OOP_Laba5\OOP_Laba5\OOP_Laba5\bin\Debug\netcoreapp3.1\test.txt

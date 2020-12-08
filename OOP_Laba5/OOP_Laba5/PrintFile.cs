@@ -6,16 +6,14 @@ namespace OOP_Laba5
 {
     class PrintFile
     {
-        public void print_file(ref ArrayOfNumber array_of_number)
+        public void print_file(ref int[] arr)
         {
-            Encoding unicode = Encoding.Unicode;
-            string path = $"{AppDomain.CurrentDomain.BaseDirectory}result.txt";
-            using (StreamWriter fout = new StreamWriter(@path, false, unicode))
+            string path = @"result.txt";
+            using (StreamWriter fout = new StreamWriter(path, false))
             {
-                int count = array_of_number._size_arr;
-                for (int i = 0; i < count; ++i)
+                for (int i = 0; i < arr.Length; ++i)
                 {
-                    fout.Write($"{array_of_number._arr[i]}\n");
+                    fout.Write($"{arr[i]}\n");
                 }
             }
         }

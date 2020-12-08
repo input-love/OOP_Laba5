@@ -8,32 +8,46 @@ namespace OOP_Laba5
         {
             try
             {
-                int check = dialog_get_sort_name();
+                int check = dialog_get_name_sort();
+                string name_file = dialog_get_name_file();
                 int size = dialog_get_size_file();
 
-                ArrayOfNumber array_of_number = new ArrayOfNumber(size);
-                array_of_number.create_arr();
+                ScanFile scan_file = new ScanFile();
+                int[] arr = scan_file.scan_file(ref name_file, size);
 
-                shape_factory(check, ref array_of_number);
+                shape_factory(check, ref arr);
 
-                print_file(ref array_of_number);
+                print_file(ref arr);
             } catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
         }
 
-        private int dialog_get_sort_name()
+        private int dialog_get_name_sort()
         {
             int check;
             do
             {
                 print_menu_check();
                 check = Convert.ToInt32(Console.ReadLine());
-            } while(check < 1 || check > 2);
+                Console.Clear();
+            } while (check < 1 || check > 2);
             return check;
         }
 
+        private string dialog_get_name_file()
+        {
+            string name_file;
+            do
+            {
+                Console.WriteLine("Название файла и его формат: ");
+                name_file = Console.ReadLine();
+                Console.Clear();
+            } while (name_file == "");
+            return name_file;
+
+        }
         private int dialog_get_size_file()
         {
             int size;
@@ -41,29 +55,30 @@ namespace OOP_Laba5
             {
                 Console.WriteLine("Сколько элементов считать с файла?:");
                 size = Convert.ToInt32(Console.ReadLine());
-            } while(size <= 0);
+                Console.Clear();
+            } while (size <= 0);
             return size;
         }
-
-        private void shape_factory(int check, ref ArrayOfNumber array_of_number)
+        private void shape_factory(int check, ref int[] arr)
         {
             Sorting sorting;
-            if(check == 1)
+            if (check == 1)
             {
                 sorting = new Quick();
-                array_of_number._arr = sorting.sort(array_of_number._arr, array_of_number._size_arr);
+                sorting.sort(ref arr, arr.Length);
             }
-            else if(check == 2)
+            else if (check == 2)
             {
                 sorting = new Choice();
-                array_of_number._arr = sorting.sort(array_of_number._arr, array_of_number._size_arr);
+                sorting.sort(ref arr, arr.Length);
             }
         }
 
-        private void print_file(ref ArrayOfNumber array_of_number)
+        private void print_file(ref int[] arr)
         {
             PrintFile print_file = new PrintFile();
-            print_file.print_file(ref array_of_number);
+            print_file.print_file(ref arr);
+            Console.WriteLine("Успешно, файл будет выгружен в корневую папку проекта!");
         }
 
         private void print_menu_check()

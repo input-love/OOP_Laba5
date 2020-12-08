@@ -4,7 +4,7 @@ namespace OOP_Laba5
 {
     class Choice: Sorting
     {
-        public override int[] sort(int[] arr, int size)
+        public override void sort(ref int[] arr, int size)
         {
             for (int i = 0; i < size - 1; ++i) 
             {
@@ -18,7 +18,6 @@ namespace OOP_Laba5
                 }
                 swap(ref arr[i], ref arr[i_min]);
 	        }
-            return arr;
         }
     }
 }

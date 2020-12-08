@@ -6,15 +6,14 @@ namespace OOP_Laba5
 {
     class ScanFile
     {
-        public void scan_file(ref int[] _arr, int size)
+        public int[] scan_file(ref string name_file, int size)
         {
-            //Encoding unicode = Encoding.Unicode;
-            string path = $"{AppDomain.CurrentDomain.BaseDirectory}test.txt";
-            if (File.Exists(@path))
+            if (File.Exists(@name_file))
             {
-                using (StreamReader stream_reader = new StreamReader(@path))
+                string line;
+                int[] arr = new int[size];
+                using (StreamReader stream_reader = new StreamReader(@name_file))
                 {
-                    string line;
                     for (int i = 0; i < size; ++i)
                     {
                         if ((line = stream_reader.ReadLine()) == null)
@@ -23,10 +22,11 @@ namespace OOP_Laba5
                         }
                         else
                         {
-                            _arr[i] = Parser.parse(ref line);
+                            arr[i] = Parser.parse(ref line);
                         }
                     }
                 }
+                return arr;
             }
             else
             {
